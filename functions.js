@@ -1,4 +1,28 @@
 const piece = ["X", "O"]
+var index = 0;
+var otherButton = null;
+
+var selectPiece = document.getElementById("pieceContainer");
+var pieceButtons = selectPiece.childNodes;
+for (var i = 0; i < pieceButtons.length; i++) {
+    
+}
+selectPiece.addEventListener("click", selectStartingPiece);
+
+function selectStartingPiece(event) {
+    var getPiece = event.target.innerHTML;
+    if (getPiece == "O") {
+        index = 1;
+    } else {
+        index = 0;
+    }
+    if (otherButton != null) {
+        otherButton.style.backgroundColor = "beige";
+    } 
+    event.target.style.backgroundColor = "seagreen";
+
+    otherButton = event.target;
+}
 
 function displayBoard() {
     // get board div from html file
