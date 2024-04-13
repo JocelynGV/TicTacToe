@@ -12,6 +12,7 @@ hr {
 #board {
     width: 450px;
     height: 450px;
+    aspect-ratio: 1;
 
     background-color: cadetblue;
     border: 5px solid rgb(56, 32, 0);
@@ -20,6 +21,7 @@ hr {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    /* visibility: hidden; */
 /*    flex-wrap: wrap;*/
 }
 
@@ -28,6 +30,46 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center; 
+    font-size: 8em;
+    font-weight: bold;
+}
+
+@media (max-width: 450px) {
+    #board {
+        width: 200px;
+        height: 200px;
+    }
+
+    .grid-item {
+        font-size: 3em;
+        font-weight: none;
+    }
+}
+
+#selectPiece {
+    grid-column: span 3;    
+}
+
+#selectPiece p {
+    font-size: 1.5em;
+}
+
+.pieces {
+    font-size: 3.5em;
+    font-weight: bold;
+    padding: 12px;
+    gap: 12px;
+}
+
+#start {
+    font-size: 1.5em;
+    font-weight: bold;
+    grid-column: 2;
+    grid-row: 3;
+    height: 4rem;
+    border-radius: 10px;
+    background-color: beige;
+    /* grid-row-end: span2; */
 }
 
 .tile{
