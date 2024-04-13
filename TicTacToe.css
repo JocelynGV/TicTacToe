@@ -14,15 +14,17 @@ hr {
     height: 450px;
 
     background-color: cadetblue;
+    border: 5px solid rgb(56, 32, 0);
 
     margin: 0 auto;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 /*    flex-wrap: wrap;*/
 }
 
 .grid-item {
-    border: 2px solid rgba(0, 0, 0, 0.8);
+    border: 2px solid rgb(56, 32, 0);
     display: flex;
     justify-content: center;
     align-items: center; 
