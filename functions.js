@@ -86,7 +86,6 @@ function changePlayer() {
     player.innerHTML = piece[index % 2] + "'s turn!";
 }
 
-var draw = false
 var gridItems = board.childNodes;
 function checkWinner() {
     
@@ -119,31 +118,15 @@ function checkWinner() {
         winner = gridItems[2].id;
         endGame();
         return true;
-
-
-    draw = true;
-    for(var i = 0; i < gridItems.length; i++ ){
-        if(!gridItems[i].classList.contains("isClicked")){
-            draw = false;
-        }
     }
-
-    if(draw){
-        winner = "Draw";
-        endGame();
-        return true;
 }
 
 var playAgain = document.getElementById("playAgain");
 
-
-    if(draw){
-        player.innerHTML = winner ;
-    }
-    player.style.
+function endGame() {
     player.innerHTML = winner + " wins!";
     // player.style.backgroundColor = "yellow";
-    document.getElementById("body").style
+    document.getElementById("body").style.backgroundColor = "lightgreen";
     isOver = true;
 
     playAgain.style.visibility = "visible";
@@ -153,8 +136,8 @@ var playAgain = document.getElementById("playAgain");
 
 function resetBoard() {
     player.innerHTML = "";
-    player.style.backgroundColor = "rgba(0
-    document.getElementById("body").style.backgroundColor = "rgb
+    player.style.backgroundColor = "rgba(0,0,0,0)";
+    document.getElementById("body").style.backgroundColor = "rgb(146, 119, 243)";
     playAgain.style.visibility = "hidden";
     isOver = false;
 }
