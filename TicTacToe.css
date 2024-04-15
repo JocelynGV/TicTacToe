@@ -16,6 +16,11 @@ hr {
     background-color: black;
 }
 
+.points {
+    color: blue;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 #board {
     width: 450px;
     height: 450px;
@@ -108,10 +113,10 @@ hr {
 }
 
 #player {
-    font-size: 30px;
-    -webkit-text-stroke:.4px white;
+    font-size: 40px;
+    -webkit-text-stroke:.6px white;
     font-weight: bold;
-    padding: 1em;
+    /* padding: 1em; */
 }
 
 .tile {

@@ -4,6 +4,8 @@ var otherButton = null;
 
 var winner;
 var isOver = false;
+var xWins = 0;
+var oWins = 0;
 
 var selectPiece = document.getElementById("pieceContainer");
 var pieceButtons = selectPiece.childNodes;
@@ -31,6 +33,7 @@ function selectStartingPiece(event) {
 var board = document.getElementById("board");
 
 function displayBoard() {
+    updatePoints();
     resetBoard();
     board.style.visibility = "visible";
     board.replaceChildren();
@@ -84,10 +87,30 @@ function addPiece(event) {
 var player = document.getElementById("player");
 function changePlayer() {
     player.innerHTML = piece[index % 2] + "'s turn!";
+
+    var playerX = document.getElementById("playerX");
+    var playerO = document.getElementById("playerO");
+    if (piece[index % 2] == "X") {
+        // underline current player
+        playerX.style.textDecoration = "underline";
+        playerX.style.textDecorationColor = "white";
+        playerX.style.textDecorationThickness = "3px";
+        // remove underline from other player
+        playerO.style.textDecoration = "none";
+    } else {
+        // underline current player
+        playerO.style.textDecoration = "underline";
+        playerO.style.textDecorationColor = "white";
+        playerO.style.textDecorationThickness = "3px";
+        // remove underline from other player
+        playerX.style.textDecoration = "none";
+    }
 }
 
 var draw = false;
 var gridItems = board.childNodes;
+let winPos = [];
+
 function checkWinner() {
     
     // check for matches vertically
@@ -139,18 +162,36 @@ var playAgain = document.getElementById("playAgain");
 
 function endGame() {
     if (draw){
-        player.innerHTML = winner ;
+        player.innerHTML = winner;
+        document.getElementById("body").style.backgroundColor = "rgb(237, 247, 108)";
     } else {
         player.innerHTML = winner + " wins!";
+
+        // increase point value for player that won round
+        if (winner == "X") {
+            xWins++;
+            console.log("x wins: " + xWins);
+        } else {
+            oWins++;
+            console.log("o wins: " + oWins);
+        }
+        updatePoints();
+
+        // change background color
+        document.getElementById("body").style.backgroundColor = "lightgreen";
     }
 
     // player.style.backgroundColor = "yellow";
-    document.getElementById("body").style.backgroundColor = "lightgreen";
     isOver = true;
 
     playAgain.style.visibility = "visible";
 
     playAgain.addEventListener("click", displayBoard);
+}
+
+function updatePoints() {
+    document.getElementById("xPoints").innerHTML = xWins;
+    document.getElementById("oPoints").innerHTML = oWins;
 }
 
 function resetBoard() {
