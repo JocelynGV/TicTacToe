@@ -86,6 +86,7 @@ function changePlayer() {
     player.innerHTML = piece[index % 2] + "'s turn!";
 }
 
+var draw = false;
 var gridItems = board.childNodes;
 function checkWinner() {
     
@@ -119,12 +120,30 @@ function checkWinner() {
         endGame();
         return true;
     }
+
+    draw = true;
+    for(var i = 0; i < gridItems.length; i++ ){
+        if(!gridItems[i].classList.contains("isClicked")){
+            draw = false;
+        }
+    }
+
+    if(draw){
+        winner = "Draw";
+        endGame();
+        return true;
+    }
 }
 
 var playAgain = document.getElementById("playAgain");
 
 function endGame() {
-    player.innerHTML = winner + " wins!";
+    if (draw){
+        player.innerHTML = winner ;
+    } else {
+        player.innerHTML = winner + " wins!";
+    }
+
     // player.style.backgroundColor = "yellow";
     document.getElementById("body").style.backgroundColor = "lightgreen";
     isOver = true;
