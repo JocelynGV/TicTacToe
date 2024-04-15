@@ -102,10 +102,16 @@ hr {
     gap: 10em;
 }
 
+#playerDisplayDiv {
+    display: flex;
+    justify-content: center;
+}
+
 #player {
     font-size: 30px;
     -webkit-text-stroke:.4px white;
     font-weight: bold;
+    padding: 1em;
 }
 
 .tile {

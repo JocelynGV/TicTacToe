@@ -125,7 +125,8 @@ var playAgain = document.getElementById("playAgain");
 
 function endGame() {
     player.innerHTML = winner + " wins!";
-    player.style.backgroundColor = "yellow";
+    // player.style.backgroundColor = "yellow";
+    document.getElementById("body").style.backgroundColor = "lightgreen";
     isOver = true;
 
     playAgain.style.visibility = "visible";
@@ -136,6 +137,7 @@ function endGame() {
 function resetBoard() {
     player.innerHTML = "";
     player.style.backgroundColor = "rgba(0,0,0,0)";
+    document.getElementById("body").style.backgroundColor = "rgb(146, 119, 243)";
     playAgain.style.visibility = "hidden";
     isOver = false;
 }
