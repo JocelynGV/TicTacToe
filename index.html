@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+
+        <link rel="stylesheet" href="TicTacToe.css">
+       
+    </head>
+
+    <body id="body">
+        <h1>Tic Tac Toe</h1>
+        <hr>
+        <br>
+        <div id="playerContainer">
+            <h2>Player 1: </h2>
+            <h2>Player 2: </h2>
+        </div>
+        <!--3x3 board-->
+        <div id="board"> 
+            <div id="selectPiece">
+                <p>Select starting piece</p>
+                <div id="pieceContainer">
+                    <button class="pieces" id="X">X</button>
+                    <button class="pieces" id="O">O</button>
+                </div>
+            </div>
+            <button id="start">Start Game</button>
+            <!-- Add grid divs using javascript -->
+        </div>
+
+        <div id="playerDisplayDiv">
+            <p id="player"></p>
+        </div>
+
+        <button id="playAgain">Play Again!</button>
+
+        <script src="functions.js"></script>
+    </body>
+</html>

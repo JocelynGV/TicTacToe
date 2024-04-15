@@ -1,6 +1,13 @@
 body { 
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    background-color: rgb(146, 119, 243);
+}
+
+h1 {
+    -webkit-text-stroke:.5px white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
 }
 
 hr {
@@ -12,15 +19,102 @@ hr {
 #board {
     width: 450px;
     height: 450px;
+    aspect-ratio: 1;
 
-    background-color: cadetblue;
+    background-color: rgb(95, 158, 160);
+    border: 5px solid rgb(56, 32, 0);
 
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* visibility: hidden; */
+/*    flex-wrap: wrap;*/
 }
 
-.tile{
+.grid-item {
+    border: 2px solid rgb(56, 32, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 7em;
+    font-weight: bold;
+}
+
+
+#selectPiece {
+    grid-column: span 3;    
+}
+
+#selectPiece p {
+    font-size: 1.5em;
+}
+
+#pieceContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pieces {
+    font-size: 3.5em;
+    font-weight: bold;
+    padding: 12px 22px ;
+    gap: 12px;
+    border-radius: 10px;
+    background-color: beige;
+}
+
+@media (max-width: 450px) {
+    #board {
+        width: 300px;
+        height: 300px;
+    }
+
+    .grid-item {
+        font-size: 4em;
+        font-weight: none;
+    }
+
+    #selectPiece p {
+        font-size: 1.25em;
+    }
+
+    .pieces {
+        font-size: 1.5em;
+    }
+}
+
+#start {
+    font-size: 1.5em;
+    font-weight: bold;
+    grid-column: 2;
+    grid-row: 3;
+    height: 4rem;
+    border-radius: 10px;
+    background-color: beige;
+    /* grid-row-end: span2; */
+}
+
+#playerContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10em;
+}
+
+#playerDisplayDiv {
+    display: flex;
+    justify-content: center;
+}
+
+#player {
+    font-size: 30px;
+    -webkit-text-stroke:.4px white;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.tile {
     width: 147px;
     height: 147px;
 
@@ -41,4 +135,13 @@ hr {
 .winner {
     background-color: blueviolet;
     color: chartreuse;
+}
+
+#playAgain {
+    visibility: hidden;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 12px;
+    background-color: beige;
+    border-radius: 10px;
 }
