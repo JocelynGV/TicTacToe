@@ -41,7 +41,6 @@ function displayBoard() {
     for(var i = 1; i <=9; i++) {
         // create grid elements and add to grid div
         var element = document.createElement("div");
-        // element.setAttribute("class", "grid-item");
         element.classList.add("grid-item");
         element.setAttribute("id", i);
         element.addEventListener("click", addPiece);;
@@ -63,17 +62,13 @@ start.addEventListener("mouseout", event => {
 
 
 function addPiece(event) {
-    // event.target.style.backgroundColor = "red";
-
     if (!event.target.classList.contains("isClicked") && !isOver) {
         if (index % 2 == 0) {
             event.target.innerHTML ="X";
-            // event.target.classList.add("X");
             event.target.id = "X";
             
         } else {
             event.target.innerHTML = "O";
-            // event.target.classList.add("O");
             event.target.id = "O";
         }
 
@@ -109,7 +104,7 @@ function changePlayer() {
 
 var draw = false;
 var gridItems = board.childNodes;
-let winPos = [];
+let winPos;
 
 function checkWinner() {
     
@@ -117,6 +112,7 @@ function checkWinner() {
     for (var i = 0; i < 3; i++) {
         if (gridItems[i].id == gridItems[i + 3].id && gridItems[i + 3].id == gridItems[i + 6].id) {
             winner = gridItems[i].id;
+            winPos = [i, i + 3, i + 6];
             endGame();
             return true;
         }
@@ -126,6 +122,7 @@ function checkWinner() {
     for (var i = 0; i < 7; i+=3) {
         if (gridItems[i].id == gridItems[i + 1].id && gridItems[i + 1].id == gridItems[i + 2].id) {
             winner = gridItems[i].id;
+            winPos = [i, i + 1, i + 2];
             endGame();
             return true;
         }
@@ -134,12 +131,14 @@ function checkWinner() {
     // just felt like hardcoding the diagonal part
     if (gridItems[0].id == gridItems[4].id && gridItems[4].id == gridItems[8].id) {
         winner = gridItems[0].id;
+        winPos = [0, 4, 8];
         endGame();
         return true;
     }
 
     if (gridItems[2].id == gridItems[4].id && gridItems[4].id == gridItems[6].id) {
         winner = gridItems[2].id;
+        winPos = [2, 4, 6];
         endGame();
         return true;
     }
@@ -176,6 +175,7 @@ function endGame() {
             console.log("o wins: " + oWins);
         }
         updatePoints();
+        displayWin();
 
         // change background color
         document.getElementById("body").style.backgroundColor = "lightgreen";
@@ -189,9 +189,17 @@ function endGame() {
     playAgain.addEventListener("click", displayBoard);
 }
 
+// update point values on screen
 function updatePoints() {
     document.getElementById("xPoints").innerHTML = xWins;
     document.getElementById("oPoints").innerHTML = oWins;
+}
+
+function displayWin() {
+    //  color background of winning grid items
+    for (var i = 0; i < winPos.length; i++) {
+        gridItems[winPos[i]].style.backgroundColor = "rgb(64, 224, 208)";
+    }
 }
 
 function resetBoard() {
