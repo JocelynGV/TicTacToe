@@ -16,6 +16,11 @@ hr {
     background-color: black;
 }
 
+.points {
+    color: blue;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 #board {
     width: 450px;
     height: 450px;
@@ -28,8 +33,6 @@ hr {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    /* visibility: hidden; */
-/*    flex-wrap: wrap;*/
 }
 
 .grid-item {
@@ -93,7 +96,6 @@ hr {
     height: 4rem;
     border-radius: 10px;
     background-color: beige;
-    /* grid-row-end: span2; */
 }
 
 #playerContainer {
@@ -108,10 +110,9 @@ hr {
 }
 
 #player {
-    font-size: 30px;
-    -webkit-text-stroke:.4px white;
+    font-size: 40px;
+    -webkit-text-stroke:.6px white;
     font-weight: bold;
-    padding: 1em;
 }
 
 .tile {
