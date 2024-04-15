@@ -70,8 +70,8 @@ hr {
 
 @media (max-width: 450px) {
     #board {
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
     }
 
     .grid-item {
