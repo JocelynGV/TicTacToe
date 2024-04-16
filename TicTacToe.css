@@ -22,8 +22,8 @@ hr {
 }
 
 #board {
-    width: 450px;
-    height: 450px;
+    width: 350px;
+    height: 350px;
     aspect-ratio: 1;
 
     background-color: rgb(95, 158, 160);
